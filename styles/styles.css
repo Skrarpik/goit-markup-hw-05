@@ -13,6 +13,7 @@ body {
   --text-color: #212121;
   --text-color2: #757575;
   --text-color3: #fff;
+  --color-btn: #188ce8;
   --background-color1: #fff;
   --background-color2: #f5f4fa;
   --background-color3: #2f303a;
@@ -110,9 +111,6 @@ img {
   align-items: center;
   padding-top: 32px;
   padding-bottom: 32px;
-  transition-property: color;
-  transition-duration: var(--transition-duration);
-  transition-timing-function: var(--timing-function);
 }
 .contacts-icon {
   fill: currentColor;
@@ -121,28 +119,32 @@ img {
 .nav-link {
   color: var(--text-color);
 }
+.hover-color,
+.hover-color {
+  transition-property: color;
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--timing-function);
+}
 .hover-color:hover,
 .hover-color:focus {
   color: var(--brand-color);
 }
-.line {
+
+
+.active {
   position: relative;
 }
-.line::after {
+.active::after {
   content: '';
   position: absolute;
   bottom: -2px;
   width: 100%;
   background-color: var(--brand-color);
   height: 5px;
-  border-radius: 3px;
-  opacity: 0;
+  border-radius: 50px;
   transition-property: opacity;
   transition-duration: var(--transition-duration);
   transition-timing-function: var(--timing-function);
-}
-.line:hover::after {
-  opacity: 1;
 }
 
 .hero {
@@ -188,7 +190,8 @@ img {
   background-color: var(--brand-color);
   border-radius: 4px;
   cursor: pointer;
-  transition-property: color, background, box-shadow;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  transition-property: color, background;
   transition-duration: var(--transition-duration);
   transition-timing-function: var(--timing-function);
 }
@@ -196,8 +199,7 @@ img {
 .btn-hero:hover,
 .btn-hero:focus {
   color: var(--text-color3);
-  background: #188ce8;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  background: var(--color-btn);
 }
 
 .btn-filters {
@@ -230,7 +232,7 @@ img {
   height: 100%;
   background: rgba(0, 0, 0, 0.2);
   opacity: 1;
-  transition-property: opacity;
+  transition-property: opacity, visibility;
   transition-duration: var(--transition-duration);
   transition-timing-function: var(--timing-function);
 }
@@ -238,6 +240,9 @@ img {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
+}
+.backdrop.is-hidden .modal {
+  transition-property: transform;
 }
 .modal {
   position: fixed;
@@ -247,6 +252,8 @@ img {
   min-width: 528px;
   min-height: 581px;
   background-color: var(--background-color1);
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--timing-function);
 }
 .btn-close {
   position: absolute;
@@ -359,7 +366,7 @@ img {
   border-radius: 50%;
   width: 44px;
   height: 44px;
-  fill: #afb1b8;
+  fill: var(--icon-color);
   transition-property: background-color, fill;
   transition-duration: var(--transition-duration);
   transition-timing-function: var(--timing-function);
@@ -382,7 +389,7 @@ img {
   align-items: center;
   justify-content: center;
   padding: 16px 30px;
-  border: 1px solid #afb1b8;
+  border: 1px solid var(--icon-color);
   border-radius: 5px;
   fill: var(--icon-color);
   transition-property: fill, border;
